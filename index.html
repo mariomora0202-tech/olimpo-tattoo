@@ -1,0 +1,879 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#000000">
+  <meta name="description" content="Olimpo Tattoo: arte en tu piel. Creación que trasciende.">
+  <title>Olimpo Tattoo | Arte en tu piel</title>
+
+  <style>
+    :root {
+      --negro: #050505;
+      --dorado: #eab34e;
+      --dorado-oscuro: #c9963c;
+      --blanco: #f8f5ef;
+      --gris: #d8d4cd;
+      --panel: #121218;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 85px;
+    }
+
+    body {
+      background: var(--negro);
+      color: var(--blanco);
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    .contenedor {
+      width: min(1200px, 92%);
+      margin: auto;
+    }
+
+    /* ENCABEZADO Y MENÚ */
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: #030303;
+      border-bottom: 1px solid var(--dorado);
+    }
+
+    .navegacion {
+      min-height: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 25px;
+    }
+
+    .marca {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--dorado);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(18px, 2.2vw, 29px);
+      font-weight: bold;
+      white-space: nowrap;
+    }
+
+    .logo {
+  width: 90px;
+  height: 90px;
+  object-fit: contain;
+}
+
+    .menu {
+      display: flex;
+      align-items: center;
+      gap: clamp(15px, 3vw, 38px);
+      font-size: 13px;
+      font-weight: bold;
+    }
+
+    .menu a {
+      transition: color 0.3s;
+    }
+
+    .menu a:hover {
+      color: var(--dorado);
+    }
+
+    .boton-menu {
+      display: none;
+      padding: 7px 12px;
+      border: 1px solid var(--dorado);
+      background: transparent;
+      color: white;
+      font-size: 23px;
+      cursor: pointer;
+    }
+
+    .whatsapp-menu {
+      color: #25d366;
+      font-size: 27px;
+      font-weight: bold;
+    }
+
+    /* PORTADA PRINCIPAL */
+
+    .portada {
+      position: relative;
+      min-height: 480px;
+      height: min(560px, 58vw);
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+      text-align: center;
+      background: #17130d;
+    }
+
+    .portada-imagen {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .portada::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        rgba(0, 0, 0, 0.48),
+        rgba(0, 0, 0, 0.70)
+      );
+    }
+
+    .portada-contenido {
+      position: relative;
+      z-index: 1;
+      padding: 30px 20px;
+    }
+
+    .bienvenida {
+      color: var(--dorado);
+      font-size: 14px;
+      letter-spacing: 7px;
+      margin-bottom: 10px;
+    }
+
+    h1, h2 {
+      font-family: Georgia, "Times New Roman", serif;
+      font-weight: normal;
+    }
+
+    h1 {
+      color: var(--blanco);
+      font-size: clamp(35px, 6vw, 80px);
+      line-height: 1.15;
+      text-transform: uppercase;
+    }
+
+    .frase {
+      margin-top: 12px;
+      color: var(--dorado);
+      font-size: clamp(13px, 2vw, 21px);
+      font-weight: bold;
+      letter-spacing: 5px;
+    }
+
+    .boton-dorado {
+      display: inline-block;
+      margin-top: 25px;
+      padding: 12px 25px;
+      border: 1px solid var(--dorado);
+      color: var(--dorado);
+      letter-spacing: 2px;
+      font-size: 13px;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    .boton-dorado:hover {
+      background: var(--dorado);
+      color: #000;
+    }
+
+    /* CARACTERÍSTICAS */
+
+    .caracteristicas {
+      position: relative;
+      padding: 65px 0;
+      overflow: hidden;
+      background: #10100e;
+    }
+
+    .fondo-caracteristicas {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.25;
+    }
+
+    .caracteristicas-contenido {
+      position: relative;
+      z-index: 1;
+    }
+
+    .caracteristicas-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .caracteristica {
+      min-height: 190px;
+      padding: 25px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      border: 1px solid rgba(234, 179, 78, 0.55);
+      background: rgba(0, 0, 0, 0.65);
+    }
+
+    .icono {
+      color: var(--dorado);
+      font-size: 38px;
+      margin-bottom: 12px;
+    }
+
+    .caracteristica h3 {
+      color: var(--dorado);
+      margin-bottom: 8px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-weight: normal;
+      letter-spacing: 1px;
+    }
+
+    .caracteristica p {
+      color: var(--gris);
+      font-size: 14px;
+      max-width: 290px;
+    }
+
+    /* GALERÍA */
+
+    .galeria {
+      padding: 75px 0;
+      background: #000;
+    }
+
+    .titulo-seccion {
+      margin-bottom: 45px;
+      text-align: center;
+      color: var(--dorado);
+      font-size: clamp(30px, 4vw, 48px);
+      letter-spacing: 5px;
+    }
+
+    .titulo-seccion::after {
+      content: "";
+      display: block;
+      width: 250px;
+      max-width: 75%;
+      height: 1px;
+      margin: 12px auto 0;
+      background: var(--dorado);
+    }
+
+    .galeria-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 22px;
+    }
+
+    .tarjeta-tatuaje {
+      position: relative;
+      height: 310px;
+      overflow: hidden;
+      background: #171612;
+      border: 1px solid rgba(234, 179, 78, 0.30);
+    }
+
+    .tarjeta-tatuaje img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s;
+    }
+
+    .tarjeta-tatuaje:hover img {
+      transform: scale(1.06);
+    }
+
+    .tarjeta-tatuaje::after {
+      content: "";
+      position: absolute;
+      inset: 45% 0 0;
+      background: linear-gradient(transparent, rgba(0, 0, 0, 0.9));
+    }
+
+    .tarjeta-tatuaje h3 {
+      position: absolute;
+      z-index: 1;
+      left: 20px;
+      bottom: 15px;
+      color: var(--dorado);
+      font-size: 17px;
+      font-weight: normal;
+      letter-spacing: 2px;
+    }
+
+    /* FORMULARIO DE CITAS */
+
+    .citas {
+      padding: 45px 0;
+      background: var(--panel);
+      border-top: 1px solid #40382b;
+      border-bottom: 1px solid #40382b;
+    }
+
+    .citas .titulo-seccion {
+      margin-bottom: 25px;
+    }
+
+    .formulario {
+      width: min(650px, 95%);
+      margin: auto;
+      padding: 25px;
+      background: #19191d;
+      border: 1px solid #40382b;
+      border-radius: 16px;
+    }
+
+    .formulario label {
+      display: block;
+      margin: 0 0 6px;
+      color: var(--gris);
+      font-size: 13px;
+    }
+
+    .formulario input,
+    .formulario textarea {
+      width: 100%;
+      margin-bottom: 16px;
+      padding: 14px;
+      border: 1px solid #38332a;
+      border-radius: 8px;
+      outline: none;
+      background: #080808;
+      color: white;
+      font: inherit;
+    }
+
+    .formulario input:focus,
+    .formulario textarea:focus {
+      border-color: var(--dorado);
+    }
+
+    .formulario textarea {
+      min-height: 110px;
+      resize: vertical;
+    }
+
+    .boton-whatsapp {
+      width: 100%;
+      padding: 15px;
+      border: none;
+      border-radius: 30px;
+      background: #25d366;
+      color: #06180c;
+      font-size: 15px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: filter 0.3s;
+    }
+
+    .boton-whatsapp:hover {
+      filter: brightness(1.1);
+    }
+
+    /* INFORMACIÓN DE LA MARCA */
+
+    .informacion {
+      padding: 65px 0 50px;
+      background: #000;
+      border-top: 2px solid var(--dorado);
+    }
+
+    .informacion-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 40px;
+    }
+
+    .informacion-articulo h3 {
+      margin-bottom: 15px;
+      color: var(--dorado);
+      font-size: 17px;
+    }
+
+    .informacion-articulo p {
+      color: var(--gris);
+      font-size: 14px;
+    }
+
+    .comillas {
+      margin-right: 8px;
+      font-size: 25px;
+    }
+
+    /* PIE DE PÁGINA */
+
+    footer {
+      padding: 35px 15px;
+      text-align: center;
+      background: #030303;
+      border-top: 1px solid #242424;
+      color: var(--gris);
+      font-size: 13px;
+    }
+
+    .redes {
+      margin-top: 12px;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .redes a {
+      color: var(--dorado);
+    }
+
+    /* BOTÓN FLOTANTE DE WHATSAPP */
+
+    .whatsapp-flotante {
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+      z-index: 200;
+      width: 60px;
+      height: 60px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: #25d366;
+      color: white;
+      font-size: 29px;
+      font-weight: bold;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.6);
+    }
+
+    /* ADAPTACIÓN A TABLET Y CELULAR */
+
+    @media (max-width: 800px) {
+      .navegacion {
+        min-height: 75px;
+        flex-wrap: wrap;
+        padding: 7px 0;
+      }
+
+      .logo {
+        width: 48px;
+        height: 48px;
+      }
+
+      .boton-menu {
+        display: block;
+      }
+
+      .menu {
+        display: none;
+        order: 4;
+        width: 100%;
+        flex-direction: column;
+        padding: 15px 0;
+        gap: 18px;
+      }
+
+      .menu.abierto {
+        display: flex;
+      }
+
+      .portada {
+        min-height: 400px;
+        height: 480px;
+      }
+
+      .caracteristicas-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .caracteristica {
+        min-height: 150px;
+      }
+
+      .galeria-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 14px;
+      }
+
+      .tarjeta-tatuaje {
+        height: 250px;
+      }
+
+      .informacion-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .marca {
+        font-size: 17px;
+      }
+
+      .bienvenida {
+        letter-spacing: 4px;
+      }
+
+      .frase {
+        letter-spacing: 2px;
+      }
+
+      .portada {
+        min-height: 370px;
+        height: 400px;
+      }
+
+      .galeria {
+        padding: 50px 0;
+      }
+
+      .galeria-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .tarjeta-tatuaje {
+        height: 310px;
+      }
+
+      .formulario {
+        padding: 16px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ENCABEZADO -->
+  <header id="inicio">
+    <div class="contenedor navegacion">
+
+      <a class="marca" href="#inicio">
+        <!-- Coloca tu logo en la carpeta y usa este nombre -->
+        <img class="logo" src="D:\Olimpo tattoo\olimpo-tattoo\imagenes\tridente.png" alt="Logo de Olimpo Tattoo">
+        <span>olimpo tattoo</span>
+      </a>
+
+      <button
+        class="boton-menu"
+        id="botonMenu"
+        aria-label="Abrir menú"
+        aria-expanded="false">
+        ☰
+      </button>
+
+      <nav class="menu" id="menu">
+        <a href="#inicio">INICIO</a>
+        <a href="#artistas">ARTISTAS</a>
+        <a href="#galeria">GALERÍA</a>
+        <a href="#contacto">CONTACTO</a>
+        <div class="D:\Olimpo tattoo\olimpo-tattoo\imagenes\whatsapp-removebg-preview (1).png"></a>
+      </nav>
+
+      <a
+        class="whatsapp-menu"
+        href="https://wa.me/573177731832?text=Hola%20Olimpo%20Tattoo%2C%20quiero%20informaci%C3%B3n."
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Contactar por WhatsApp">
+        ☎
+      </a>
+
+    </div>
+  </header>
+
+  <main>
+
+    <!-- PORTADA PRINCIPAL -->
+    <section class="portada">
+      <!-- Cambia portada.jpg por tu propia fotografía -->
+      <img
+        class="portada-imagen"
+        src="D:\Olimpo tattoo\olimpo-tattoo\imagenes\2.Retrato dramático con tatuaje de dragón.png"
+        alt="Portada de Olimpo Tattoo">
+
+      <div class="portada-contenido">
+        <p class="bienvenida">BIENVENIDOS A</p>
+        <h1>Arte en tu piel</h1>
+        <p class="frase">CREACIÓN QUE TRASCIENDE</p>
+
+        <a class="boton-dorado" href="#galeria">
+          EXPLORAR DISEÑOS →
+        </a>
+      </div>
+    </section>
+
+    <!-- CARACTERÍSTICAS DE LA EMPRESA -->
+    <section class="caracteristicas" id="artistas">
+
+      <!-- Imagen de fondo opcional -->
+      <img
+        class="fondo-caracteristicas"
+        src="ambiente-tatuaje.jpg"
+        alt=""
+        aria-hidden="true">
+
+      <div class="contenedor caracteristicas-contenido">
+        <div class="caracteristicas-grid">
+
+          <article class="caracteristica">
+            <div class="icono" aria-hidden="true">◇</div>
+            <h3>DISEÑOS ÚNICOS</h3>
+            <p>
+              Tatuajes personalizados creados para expresar tu identidad
+              y contar tu propia historia.
+            </p>
+          </article>
+
+          <article class="caracteristica">
+            <div class="icono" aria-hidden="true">✥</div>
+            <h3>PRECISIÓN ARTÍSTICA</h3>
+            <p>
+              Creatividad, detalle y dedicación en cada trazo
+              para lograr un diseño especial.
+            </p>
+          </article>
+
+          <article class="caracteristica">
+            <div class="icono" aria-hidden="true">♧</div>
+            <h3>HIGIENE Y SEGURIDAD</h3>
+            <p>
+              Cuidado, limpieza y atención durante cada sesión
+              de tatuaje.
+            </p>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- GALERÍA DE TATUAJES -->
+    <section class="galeria" id="galeria">
+      <div class="contenedor">
+
+        <h2 class="titulo-seccion">NUESTROS ESTILOS</h2>
+
+        <div class="galeria-grid">
+
+          <article class="tarjeta-tatuaje">
+            <img src="D:\Olimpo tattoo\olimpo-tattoo\imagenes\demonio.jpg">
+            <h3>BLACKWORK</h3>
+          </article>
+
+          <article class="tarjeta-tatuaje">
+            <img src="D:\Olimpo tattoo\olimpo-tattoo\imagenes\fine line.jpg">
+            <h3>FINE LINE</h3>
+          </article>
+
+          <article class="tarjeta-tatuaje">
+            <img src="D:\Olimpo tattoo\olimpo-tattoo\imagenes\neo-tradicional.jpg">
+            <h3>NEO-TRADICIONAL</h3>
+          </article>
+
+          <article class="tarjeta-tatuaje">
+            <img src="D:\Olimpo tattoo\olimpo-tattoo\imagenes\mari de las posa.jpg">
+            <h3>ACUARELA</h3>
+          </article>
+
+          <article class="tarjeta-tatuaje">
+            <img src="D:\Olimpo tattoo\olimpo-tattoo\imagenes\dios griego.jpg" alt="Diseño de tatuaje Realista">
+            <h3>REALISMO</h3>
+          </article>
+
+          <article class="tarjeta-tatuaje">
+            <img src="D:\Olimpo tattoo\olimpo-tattoo\imagenes\anima.jpg" alt="Diseño de tatuaje estilo Animación">
+            <h3>ANIMACIÓN</h3>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- FORMULARIO PARA AGENDAR UNA CITA -->
+    <section class="citas" id="contacto">
+      <div class="contenedor">
+
+        <h2 class="titulo-seccion">AGENDA TU CITA</h2>
+
+        <form class="formulario" id="formularioCita">
+
+          <label for="nombre">Nombre completo</label>
+          <input
+            type="text"
+            id="nombre"
+            name="nombre"
+            placeholder="Escribe tu nombre"
+            autocomplete="name"
+            required>
+
+          <label for="telefono">Teléfono</label>
+          <input
+            type="tel"
+            id="telefono"
+            name="telefono"
+            placeholder="Tu número de teléfono"
+            autocomplete="tel"
+            required>
+
+          <label for="correo">Correo electrónico (opcional)</label>
+          <input
+            type="email"
+            id="correo"
+            name="correo"
+            placeholder="tunombre@correo.com"
+            autocomplete="email">
+
+          <label for="detalle">¿Qué tatuaje deseas realizarte?</label>
+          <textarea
+            id="detalle"
+            name="detalle"
+            placeholder="Cuéntanos el diseño, estilo, tamaño y zona del cuerpo..."
+            required></textarea>
+
+          <button class="boton-whatsapp" type="submit">
+            ENVIAR SOLICITUD POR WHATSAPP
+          </button>
+
+        </form>
+      </div>
+    </section>
+
+    <!-- INFORMACIÓN DE LA MARCA -->
+    <section class="informacion">
+      <div class="contenedor">
+
+        <h2 class="titulo-seccion">EL ARTE QUE NOS DEFINE</h2>
+
+        <div class="informacion-grid">
+
+          <article class="informacion-articulo">
+            <h3><span class="comillas">❝</span>Atención personalizada</h3>
+            <p>
+              En Olimpo Tattoo escuchamos las ideas de cada cliente para
+              brindar orientación y ayudarle a encontrar un diseño acorde
+              con sus gustos y expectativas.
+            </p>
+          </article>
+
+          <article class="informacion-articulo">
+            <h3><span class="comillas">❝</span>Identidad y significado</h3>
+            <p>
+              Cada tatuaje puede contar una historia. Buscamos transformar
+              ideas, recuerdos y emociones en diseños con un significado
+              especial para cada persona.
+            </p>
+          </article>
+
+          <article class="informacion-articulo">
+            <h3><span class="comillas">❝</span>Pasión por el arte</h3>
+            <p>
+              Nos inspira el arte corporal y la cultura del tatuaje.
+              Trabajamos con creatividad y dedicación para expresar
+              la esencia de Olimpo Tattoo.
+            </p>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- PIE DE PÁGINA -->
+  <footer>
+    <p>© 2026 Olimpo Tattoo Studio. Todos los derechos reservados.</p>
+    <p>Creación que trasciende.</p>
+
+    <div class="redes">
+      <a href="https://wa.me/573177731832" target="_blank" rel="noopener noreferrer">
+        WhatsApp
+      </a>
+      <a href="https://www.instagram.com/mario_mora730/" target="_blank" rel="noopener noreferrer">
+        Instagram
+      </a>
+    </div>
+  </footer>
+
+  <!-- BOTÓN FLOTANTE DE WHATSAPP -->
+  <a
+    class="whatsapp-flotante"
+    href="https://wa.me/573177731832?text=Hola%20Olimpo%20Tattoo%2C%20quiero%20agendar%20una%20cita."
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Agendar una cita por WhatsApp">
+    ☎
+  </a>
+
+  <script>
+    // Menú desplegable para celulares.
+    const botonMenu = document.getElementById("botonMenu");
+    const menu = document.getElementById("menu");
+
+    botonMenu.addEventListener("click", function () {
+      const estaAbierto = menu.classList.toggle("abierto");
+
+      botonMenu.setAttribute("aria-expanded", String(estaAbierto));
+      botonMenu.textContent = estaAbierto ? "×" : "☰";
+    });
+
+    // Cierra el menú después de seleccionar una sección.
+    menu.querySelectorAll("a").forEach(function (enlace) {
+      enlace.addEventListener("click", function () {
+        menu.classList.remove("abierto");
+        botonMenu.setAttribute("aria-expanded", "false");
+        botonMenu.textContent = "☰";
+      });
+    });
+
+    // Envía la información del formulario a WhatsApp.
+    document.getElementById("formularioCita").addEventListener(
+      "submit",
+      function (evento) {
+        evento.preventDefault();
+
+        const nombre = document.getElementById("nombre").value.trim();
+        const telefono = document.getElementById("telefono").value.trim();
+        const correo = document.getElementById("correo").value.trim();
+        const detalle = document.getElementById("detalle").value.trim();
+
+        const mensaje =
+          "Hola Olimpo Tattoo, quiero agendar una cita.\n\n" +
+          "Nombre: " + nombre + "\n" +
+          "Teléfono: " + telefono + "\n" +
+          "Correo: " + (correo || "No indicado") + "\n" +
+          "Detalles del tatuaje: " + detalle;
+
+        const numeroWhatsApp = "573177731832";
+
+        const enlaceWhatsApp =
+          "https://wa.me/" + numeroWhatsApp +
+          "?text=" + encodeURIComponent(mensaje);
+
+        window.open(enlaceWhatsApp, "_blank", "noopener,noreferrer");
+      }
+    );
+  </script>
+
+</body>
+</html>
