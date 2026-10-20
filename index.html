@@ -571,7 +571,7 @@
 
       <a class="marca" href="#inicio">
         <!-- Coloca tu logo en la carpeta y usa este nombre -->
-        <img class="logo" src="D:\Olimpo tattoo\olimpo-tattoo\imagenes\tridente.png" alt="Logo de Olimpo Tattoo">
+        <img class="logo" data-imagen="tridente.png" alt="Logo de Olimpo Tattoo">
         <span>olimpo tattoo</span>
       </a>
 
@@ -610,7 +610,7 @@
       <!-- Cambia portada.jpg por tu propia fotografía -->
       <img
         class="portada-imagen"
-        src="D:\Olimpo tattoo\olimpo-tattoo\imagenes\2.Retrato dramático con tatuaje de dragón.png"
+        data-imagen="2.Retrato dramático con tatuaje de dragón.png"
         alt="Portada de Olimpo Tattoo">
 
       <div class="portada-contenido">
@@ -630,7 +630,7 @@
       <!-- Imagen de fondo opcional -->
       <img
         class="fondo-caracteristicas"
-        src="ambiente-tatuaje.jpg"
+        data-imagen="ambiente-tatuaje.jpg"
         alt=""
         aria-hidden="true">
 
@@ -677,32 +677,32 @@
         <div class="galeria-grid">
 
           <article class="tarjeta-tatuaje">
-            <img src="D:\Olimpo tattoo\olimpo-tattoo\imagenes\demonio.jpg">
+            <img data-imagen="demonio.jpg" alt="Tatuaje estilo blackwork">
             <h3>BLACKWORK</h3>
           </article>
 
           <article class="tarjeta-tatuaje">
-            <img src="D:\Olimpo tattoo\olimpo-tattoo\imagenes\fine line.jpg">
+            <img data-imagen="fine line.jpg" alt="Tatuaje estilo fine line">
             <h3>FINE LINE</h3>
           </article>
 
           <article class="tarjeta-tatuaje">
-            <img src="D:\Olimpo tattoo\olimpo-tattoo\imagenes\neo-tradicional.jpg">
+            <img data-imagen="neo-tradicional.jpg" alt="Tatuaje estilo neo-tradicional">
             <h3>NEO-TRADICIONAL</h3>
           </article>
 
           <article class="tarjeta-tatuaje">
-            <img src="D:\Olimpo tattoo\olimpo-tattoo\imagenes\mari de las posa.jpg">
+            <img data-imagen="mari de las posa.jpg" alt="Tatuaje estilo acuarela">
             <h3>ACUARELA</h3>
           </article>
 
           <article class="tarjeta-tatuaje">
-            <img src="D:\Olimpo tattoo\olimpo-tattoo\imagenes\dios griego.jpg" alt="Diseño de tatuaje Realista">
+            <img data-imagen="dios griego.jpg" alt="Diseño de tatuaje realista">
             <h3>REALISMO</h3>
           </article>
 
           <article class="tarjeta-tatuaje">
-            <img src="D:\Olimpo tattoo\olimpo-tattoo\imagenes\anima.jpg" alt="Diseño de tatuaje estilo Animación">
+            <img data-imagen="anima.jpg" alt="Diseño de tatuaje estilo animación">
             <h3>ANIMACIÓN</h3>
           </article>
 
@@ -826,6 +826,12 @@
   </a>
 
   <script>
+    // Carga las imágenes desde la carpeta del proyecto, sin rutas locales del equipo.
+    const carpetaImagenes = new URL("imagenes/", document.baseURI);
+    document.querySelectorAll("[data-imagen]").forEach(function (imagen) {
+      imagen.src = new URL(encodeURIComponent(imagen.dataset.imagen), carpetaImagenes).href;
+    });
+
     // Menú desplegable para celulares.
     const botonMenu = document.getElementById("botonMenu");
     const menu = document.getElementById("menu");
